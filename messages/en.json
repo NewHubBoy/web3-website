@@ -2,5 +2,11 @@
     "HomePage": {
         "title": "Hello world!",
         "about": "Go to the about page"
+    },
+    "Head": {
+        "airdrop": "Airdrop",
+        "staking": "Staking",
+        "swap": "Swap",
+        "ranking": "Ranking"
     }
 }
