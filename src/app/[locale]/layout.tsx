@@ -7,7 +7,14 @@ import ContextProvider from "~/context/ReownProvider";
 import { Advent_Pro } from "next/font/google";
 import Header from "./components/Header";
 import "~/styles/globals.css";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "1783 DAO",
+  description: "1783 DAO",
+};
+
+type Params = Promise<{ locale: string }>;
 // load font
 const Advent = Advent_Pro({ subsets: ["latin"] });
 
@@ -16,7 +23,7 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Params;
 }) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
   const cookies = (await headers()).get("cookie");

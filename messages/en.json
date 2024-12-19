@@ -8,5 +8,17 @@
         "staking": "Staking",
         "swap": "Swap",
         "ranking": "Ranking"
+    },
+    "Airdrop": {
+        "airdrop": "Airdrop"
+    },
+    "Staking": {
+        "staking": "staking"
+    },
+    "Swap": {
+        "swap": "swap"
+    },
+    "Ranking": {
+        "ranking": "ranking"
     }
 }

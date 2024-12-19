@@ -1,24 +1,14 @@
-// context/index.tsx
 "use client";
 
-import { wagmiAdapter, projectId } from "~/config/reown";
-// import { QueryClient } from "@tanstack/react-query";
+import { wagmiAdapter, projectId } from "../../src/config/reown";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createAppKit } from "@reown/appkit/react";
-
-import {
-  mainnet,
-  arbitrum,
-  avalanche,
-  base,
-  optimism,
-  polygon,
-} from "@reown/appkit/networks";
+import { mainnet, arbitrum } from "@reown/appkit/networks";
 import React, { type ReactNode } from "react";
 import { cookieToInitialState, WagmiProvider, type Config } from "wagmi";
-import { QueryProvider } from "./QueryProvider";
 
 // Set up queryClient
-// const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
 if (!projectId) {
   throw new Error("Project ID is not defined");
@@ -26,18 +16,17 @@ if (!projectId) {
 
 // Set up metadata
 const metadata = {
-  name: "web3-website",
+  name: "appkit-example",
   description: "AppKit Example",
-  url: "https://reown.com/appkit", // origin must match your domain & subdomain
-  icons: ["https://assets.reown.com/reown-profile-pic.png"],
+  url: "https://appkitexampleapp.com", // origin must match your domain & subdomain
+  icons: ["https://avatars.githubusercontent.com/u/179229932"],
 };
 
 // Create the modal
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const modal = createAppKit({
   adapters: [wagmiAdapter],
   projectId,
-  networks: [mainnet, arbitrum, avalanche, base, optimism, polygon],
+  networks: [mainnet, arbitrum],
   defaultNetwork: mainnet,
   metadata: metadata,
   features: {
@@ -64,7 +53,7 @@ function ContextProvider({
       config={wagmiAdapter.wagmiConfig as Config}
       initialState={initialState}
     >
-      <QueryProvider>{children}</QueryProvider>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </WagmiProvider>
   );
 }

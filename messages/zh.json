@@ -1,12 +1,25 @@
 {
     "HomePage": {
         "title": "你好",
-        "about": "跳转到详情"
+        "about": "跳转到详情",
+        "Airdrop": {}
     },
     "Head": {
         "airdrop": "空投",
         "staking": "质押",
         "swap": "置换",
         "ranking": "排行"
+    },
+    "Airdrop": {
+        "airdrop": "空投"
+    },
+    "Staking": {
+        "staking": "质押"
+    },
+    "Swap": {
+        "swap": "置换"
+    },
+    "Ranking": {
+        "ranking": "排行榜"
     }
 }
