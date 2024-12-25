@@ -27,7 +27,7 @@ export default function Header() {
           </Link>
         </div>
         <nav className="flex items-center">
-          <div className="mr-16 flex justify-around gap-12 text-2xl">
+          <div className="mr-16 flex justify-around gap-12 text-2xl text-gray-400">
             <Link href="/airdrop">
               <span>{t("airdrop")}</span>
             </Link>
