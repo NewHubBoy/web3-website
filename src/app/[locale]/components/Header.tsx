@@ -13,12 +13,23 @@ const advent = Advent_Pro({ subsets: ["latin"] });
 
 export default function Header() {
   const t = useTranslations("Head");
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id.replace('#', ''));
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
-    <header className="w-full border-b border-gray-300">
+    <header className="fixed top-0 left-0 right-0 w-full border-b border-gray-300 bg-white/80 backdrop-blur-md z-50">
       <BaseContainer className="m-auto flex justify-between px-12 py-6">
-        {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
         <div className={cn(advent.className, "flex items-center")}>
-          <Link href={"#index"}>
+          <Link href={"#index"} onClick={(e) => handleScroll(e, '#index')}>
             <Image
               src={"/images/logo.png"}
               width={1204 / 8}
@@ -29,10 +40,10 @@ export default function Header() {
         </div>
         <nav className="flex items-center">
           <div className="mr-16 flex justify-around gap-12 text-2xl text-gray-400">
-            <Link href="#airdrop">
+            <Link href="#airdrop" onClick={(e) => handleScroll(e, '#airdrop')}>
               <span>{t("airdrop")}</span>
             </Link>
-            <Link href="#staking">
+            <Link href="#staking" onClick={(e) => handleScroll(e, '#staking')}>
               <span>{t("staking")}</span>
             </Link>
             <Link
@@ -43,7 +54,7 @@ export default function Header() {
             >
               <span>{t("swap")}</span>
             </Link>
-            <Link href="#ranking">
+            <Link href="#ranking" onClick={(e) => handleScroll(e, '#ranking')}>
               <span>{t("ranking")}</span>
             </Link>
           </div>

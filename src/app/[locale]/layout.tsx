@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "~/i18n/routing";
-import { headers } from "next/headers"; // added
+import { headers } from "next/headers";
 import ContextProvider from "~/context/ReownProvider";
 import { Advent_Pro } from "next/font/google";
 import Header from "./components/Header";
@@ -15,41 +15,35 @@ export const metadata: Metadata = {
   description: "1783 DAO",
 };
 
-type Params = Promise<{ locale: string }>;
-// load font
-const Advent = Advent_Pro({ subsets: ["latin"] });
+const advent = Advent_Pro({ subsets: ["latin"] });
 
 export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: Params;
+  params: { locale: string };
 }) {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-  const cookies = (await headers()).get("cookie");
-
-  // eslint-disable-next-line @typescript-eslint/await-thenable
   const { locale } = await params;
+  const cookieHeader = await headers();
+  const cookies = cookieHeader.get("cookie");
 
-  // Ensure that the incoming `locale` is valid
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as 'en' | 'zh')) {
     notFound();
   }
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   return (
     <html lang={locale}>
-      <body className={Advent.className}>
+      <body className={advent.className}>
         <NextIntlClientProvider messages={messages}>
           <ContextProvider cookies={cookies}>
             <Toaster />
             <Header />
-            {children}
+            <main className="pt-[88px]">
+              {children}
+            </main>
           </ContextProvider>
         </NextIntlClientProvider>
       </body>
