@@ -17,7 +17,7 @@ export default function Header() {
       <BaseContainer className="m-auto flex justify-between px-12 py-6">
         {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
         <div className={cn(advent.className, "flex items-center")}>
-          <Link href={"/"}>
+          <Link href={"#index"}>
             <Image
               src={"/images/logo.png"}
               width={1204 / 8}
@@ -28,16 +28,16 @@ export default function Header() {
         </div>
         <nav className="flex items-center">
           <div className="mr-16 flex justify-around gap-12 text-2xl text-gray-400">
-            <Link href="/airdrop">
+            <Link href="#airdrop">
               <span>{t("airdrop")}</span>
             </Link>
-            <Link href="/staking">
+            <Link href="#staking">
               <span>{t("staking")}</span>
             </Link>
             <Link href="/swap">
               <span>{t("swap")}</span>
             </Link>
-            <Link href="/ranking">
+            <Link href="#ranking">
               <span>{t("ranking")}</span>
             </Link>
           </div>
