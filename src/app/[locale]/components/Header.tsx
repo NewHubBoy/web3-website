@@ -7,6 +7,7 @@ import { cn } from "~/lib/utils";
 import BaseContainer from "./BaseContainer";
 import WalletConnect from "./ConnectWallet";
 import { Link } from "~/i18n/routing";
+import { toast } from "sonner";
 
 const advent = Advent_Pro({ subsets: ["latin"] });
 
@@ -34,7 +35,12 @@ export default function Header() {
             <Link href="#staking">
               <span>{t("staking")}</span>
             </Link>
-            <Link href="/swap">
+            <Link
+              href="#"
+              onClick={() => {
+                toast("coming soon ~");
+              }}
+            >
               <span>{t("swap")}</span>
             </Link>
             <Link href="#ranking">

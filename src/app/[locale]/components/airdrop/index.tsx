@@ -1,11 +1,14 @@
+'use client'
+
 import { useTranslations } from "next-intl";
 import { Link } from "~/i18n/routing";
-import BaseContainer from "../components/BaseContainer";
-import { AspectRatio } from "../components/AspectRatio";
+import BaseContainer from "../BaseContainer";
+import { AspectRatio } from "../AspectRatio";
 import Image from "next/image";
 import { Afacad } from "next/font/google";
 import { cn } from "~/lib/utils";
 import Address from "./AdressComponent";
+import { toast } from "sonner";
 
 // load font
 const afacad = Afacad({ subsets: ["latin"] });
@@ -62,7 +65,9 @@ export default function Airdrop() {
           <div className="text-xs text-gray-400">My Contribution</div>
         </div>
         <div className="col-span-1 flex flex-col items-center">
-          <div className="w-[180px] rounded-full bg-black py-4 text-center text-3xl text-white hover:bg-[rgb(120,251,185)] hover:text-black">
+          <div className="w-[180px] cursor-pointer rounded-full bg-black py-4 text-center text-3xl text-white hover:bg-[rgb(120,251,185)] hover:text-black" onClick={()=>{
+            toast('Coming soon ~')
+          }}>
             Claim
           </div>
           <div className="text-xs">

@@ -8,6 +8,7 @@ import { Advent_Pro } from "next/font/google";
 import Header from "./components/Header";
 import "~/styles/globals.css";
 import type { Metadata } from "next";
+import { Toaster } from "./components/Sonner";
 
 export const metadata: Metadata = {
   title: "1783 DAO",
@@ -46,6 +47,7 @@ export default async function LocaleLayout({
       <body className={Advent.className}>
         <NextIntlClientProvider messages={messages}>
           <ContextProvider cookies={cookies}>
+            <Toaster />
             <Header />
             {children}
           </ContextProvider>

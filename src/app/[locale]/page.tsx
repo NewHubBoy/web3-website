@@ -2,9 +2,9 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "~/i18n/routing";
 import { AspectRatio } from "./components/AspectRatio";
-import { SectionAirDrop } from "./airdrop/page";
-import { SectionStaking } from "./staking/page";
-import { SectionRanking } from "./ranking/page";
+import { SectionAirDrop } from "./components/airdrop";
+import { SectionStaking } from "./components/staking";
+import { SectionRanking } from "./components/ranking";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");

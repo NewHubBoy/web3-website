@@ -1,13 +1,13 @@
 import { useTranslations } from "next-intl";
 import { Link } from "~/i18n/routing";
-import BaseContainer from "../components/BaseContainer";
 import { Afacad } from "next/font/google";
 import { cn } from "~/lib/utils";
 import Image from "next/image";
-import { AspectRatio } from "../components/AspectRatio";
 import StakeItem from "./components/StakeItem";
-import { ScrollArea, ScrollBar } from "../components/ScrollArea";
+import { ScrollArea, ScrollBar } from "~/app/[locale]/components/ScrollArea";
 import HistoryItem from "./components/HistoryItem";
+import BaseContainer from "~/app/[locale]/components/BaseContainer";
+import { AspectRatio } from "~/app/[locale]/components/AspectRatio";
 
 const afacad = Afacad({ subsets: ["latin"] });
 
