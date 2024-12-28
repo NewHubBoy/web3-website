@@ -37,7 +37,7 @@ export default function Ranking() {
                       <AspectRatio ratio={1.12 / 1}>
                         <Image
                           alt="coin"
-                          src={"/images/资源 10.png"}
+                          src={"/images/Top1.png"}
                           fill
                           className="rounded-md object-cover"
                         />
@@ -65,8 +65,8 @@ export default function Ranking() {
                           alt="coin"
                           src={
                             item == 3
-                              ? "/images/资源 11.png"
-                              : "/images/资源 12.png"
+                              ? "/images/Top3.png"
+                              : "/images/Top2.png"
                           }
                           fill
                           className="rounded-md object-cover"
@@ -119,7 +119,7 @@ export const Partners = () => {
               <AspectRatio ratio={1.22 / 1}>
                 <Image
                   alt="coin"
-                  src={"/images/图层 1.png"}
+                  src={"/images/01.png"}
                   fill
                   className="rounded-md object-cover"
                 />
